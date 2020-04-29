@@ -18,3 +18,10 @@
 <%= link_to "Like (#{@article.likes.count})", article_likes_path(@article), method: :article %>
 
 <%= link_to 'Article List', articles_path %>
+
+<%= render 'rating/form' %>
+<%= "Average rating: #{@article.ratings.average(:rating)}" %>
+ Ratings Include:
+<% @article.ratings.each do | r | %>
+<%= r.rating %> <br/>
+<% end %>

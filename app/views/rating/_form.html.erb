@@ -1,0 +1,7 @@
+<%= form_for [@article,@rating] do |f| %>
+<p>
+   <%= f.collection_radio_buttons :rating, [['1', '1'] ,['2', '2'],['3', '3'],['4', '4'],['5', '5']], :first, :last %>
+    <%= f.submit "Rate this Article" %>
+</p>
+
+<% end %>
