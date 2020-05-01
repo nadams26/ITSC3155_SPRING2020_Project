@@ -7,6 +7,9 @@
     <strong>Text:</strong>
     <%= @article.text %>
 </p>
+<% if @article.image.attached? %>
+    <%= image_tag (@article.image) %>
+    <% end %>
 <%= link_to 'Article List', articles_path %>
 
 <h2>Comments</h2>
