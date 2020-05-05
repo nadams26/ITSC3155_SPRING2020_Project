@@ -4,6 +4,10 @@
 </p>
 
 <p>
+    On <%= @article.created_at.strftime("%B %d %Y, 1:%M%P") %>
+</p>
+
+<p>
     <strong>Text:</strong>
     <%= @article.text %>
 </p>
