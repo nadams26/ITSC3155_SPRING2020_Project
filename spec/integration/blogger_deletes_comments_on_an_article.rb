@@ -1,8 +1,8 @@
 require 'rails_helper.rb'
 
-feature "Blogger comments on an article" do
+feature "Blogger  deletes comments on an article" do
     
-scenario "Blogger successfully comments on an article" do
+scenario "Blogger successfully deleted comments on an article" do
        
 
         visit articles_path
