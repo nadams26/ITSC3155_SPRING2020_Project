@@ -1,18 +1,9 @@
-  
 require 'rails_helper.rb'
 
-feature"Blogger adds an article" do
-    scenario "Blogger successfully navigates to the new articles page from the listing articles page" do
-        
-        visit articles_path
-        expect(page).to have_content("Listing articles")
-        click_link "New article"
-        expect(page).to have_content("New Article")
-        expect(page).to have_field("Title")
-        expect(page).to have_field("Text")
-    end
+feature "Blogger rates an article" do
     
-    scenario "Blogger successfully creates a new article" do
+scenario "Blogger successfully rates an article" do
+       
         visit welcome_index_path
         click_link "Sign Up"
         fill_in "Name", with: "Nathan Adams"
@@ -25,6 +16,14 @@ feature"Blogger adds an article" do
         fill_in "Email", with: "nadams26@uncc.edu"
         fill_in "Password", with: "password"
         click_button "Login"
+       
+        visit articles_path
+        expect(page).to have_content("Listing articles")
+        click_link "New article"
+        expect(page).to have_content("New Article")
+        expect(page).to have_field("Title")
+        expect(page).to have_field("Text")
+    
         visit new_article_path
         expect(page).to have_content("New Article")
         fill_in "Title", with: "New Capybara Article"
@@ -32,5 +31,9 @@ feature"Blogger adds an article" do
         click_button "Create Article"
         expect(page).to have_content("New Capybara Article")
         expect(page).to have_content("This is a new Capybara article")
+        
+        choose "2"
+        click_button "Rate this Article"
+
     end
 end

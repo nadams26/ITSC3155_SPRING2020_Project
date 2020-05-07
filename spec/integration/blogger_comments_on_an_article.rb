@@ -1,9 +1,10 @@
-  
 require 'rails_helper.rb'
 
-feature"Blogger adds an article" do
-    scenario "Blogger successfully navigates to the new articles page from the listing articles page" do
-        
+feature "Blogger comments on an article" do
+    
+scenario "Blogger successfully comments on an article" do
+       
+
         visit articles_path
         expect(page).to have_content("Listing articles")
         click_link "New article"
@@ -32,5 +33,12 @@ feature"Blogger adds an article" do
         click_button "Create Article"
         expect(page).to have_content("New Capybara Article")
         expect(page).to have_content("This is a new Capybara article")
+        
+        fill_in "Commenter", with: "New Capybara comment"
+        fill_in "Body", with: "This is a new Capybara comment, I am using this to test my ability to create a comment"
+        click_button "Create Comment"
+        expect(page).to have_content("New Capybara comment")
+        expect(page).to have_content("This is a new Capybara comment, I am using this to test my ability to create a comment")
+        
     end
 end
